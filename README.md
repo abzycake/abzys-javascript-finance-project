@@ -1,4 +1,4 @@
-# abzys-javascript-finance-project
+# JavaScript Finance Project
 This JavaScript code analyzes financial records for a company, providing insights such as total months in the dataset, net profit/loss over the period, average changes, greatest profit increase, and greatest loss decrease.
 
 # Installation:
