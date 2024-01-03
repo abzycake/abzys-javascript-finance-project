@@ -89,41 +89,41 @@ var finances = [
 
 
 //month calculations// 
-var numberOfMonths = finances.length; 
-console.log("Total Months: " + numberOfMonths); 
-var netTotalPL = 0; 
-var averageChange = ""; 
-var totalChange = 0; 
-var oldValue = 0;
-var incDecArray = [];
+var monthCount = finances.length; 
+console.log("Number of months - " + monthCount); 
+var netDifference = 0; 
+var differenceAverage = ""; 
+var differenceTotal = 0; 
+var initialValue = 0;
+var differenceArray = [];
 
 
 for(i = 0; i<finances.length; i++){
   //net profit/loss calculations// 
-  netTotalPL += finances[i][1];
-  averageChange = Number(finances[i][1]) - Number(oldValue);
+  netDifference += finances[i][1];
+  differenceAverage = Number(finances[i][1]) - Number(initialValue);
 
 
   //adding changes into new array// 
-  incDecArray.push(averageChange); 
-  totalChange += averageChange;
-  oldValue = parseInt(finances[i][1]);
+  differenceArray.push(differenceAverage); 
+  differenceTotal += differenceAverage;
+  initialValue = parseInt(finances[i][1]);
 }
 
 
 //calculation of total and average change// 
-console.log("Total: $" + netTotalPL);
-console.log("Average Change: " + (totalChange - finances[0][1])/(numberOfMonths - 1));
+console.log("Total difference - $" + netDifference);
+console.log("Average difference - " + (differenceTotal - finances[0][1])/(monthCount - 1));
 
 
 //sorting answers into descending order// 
-incDecArray.sort(function(a, b){return b - a}); 
-var greatestValue = incDecArray[0];
-console.log("Greatest increase in profit/loss: February 2012: $" + greatestValue );
+differenceArray.sort(function(a, b){return b - a}); 
+var greatestValue = differenceArray[0];
+console.log("Largest increase - February 2012 - $" + greatestValue);
 
 
 //sorting answers into ascending order// 
-incDecArray.sort(function(a, b){return a - b}); 
+differenceArray.sort(function(a, b){return a - b}); 
 //largest decrease calculations// 
-var lowestValue = incDecArray[0];
-console.log("Greatest decrease in profit/loss: February 2012: $" + lowestValue );
+var lowestValue = differenceArray[0];
+console.log("Largest decrease - February 2012 - $" + lowestValue);
